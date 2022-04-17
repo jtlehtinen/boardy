@@ -5,7 +5,6 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import sveltePreprocess from 'svelte-preprocess';
-
 import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 
@@ -57,39 +56,23 @@ export default {
 
       // https://svelte.dev/docs#compile-time-svelte-compile
       compilerOptions: {
-        dev: !production // Whether to inject extra code for runtime checks and debug info.
+        dev: !production // Inject runtime checks and debug info.
       }
     }),
-
-
-    // we'll extract any component CSS out into
-    // a separate file - better for performance
     css({ output: 'bundle.css' }),
 
-    // If you have external dependencies installed from
-    // npm, you'll most likely need these plugins. In
-    // some cases you'll need additional configuration -
-    // consult the documentation for details:
-    // https://github.com/rollup/plugins/tree/master/packages/commonjs
     resolve({
       browser: true,
       dedupe: ['svelte']
     }),
+
     commonjs(),
 
-    // In dev mode, call `npm run start` once
-    // the bundle has been generated
-    !production && serve(),
-
-    // Watch the `public` directory and refresh the
-    // browser on changes when not in production
-    !production && livereload('public'),
-
-    // If we're building for production (npm run build
-    // instead of npm run dev), minify
-    production && terser()
+    !production && serve(), // Call `npm run start` after bundle generated.
+    !production && livereload('public'), // Watch 'public' dir and refresh browser on change.
+    production && terser() // Minify
   ],
   watch: {
-    clearScreen: false
+    clearScreen: false // Don't clear the terminal
   }
 };

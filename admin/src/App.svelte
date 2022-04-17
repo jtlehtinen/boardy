@@ -1,11 +1,12 @@
-<h1>Boardy Admin</h1>
+<script>
+</script>
 
-<style>
-	h1 {
-		color: #ff3e00;
-		font-size: 4em;
-		font-weight: 100;
-		text-align: center;
-		text-transform: uppercase;
-	}
+<h1 class='text-3xl font-bold underline'>
+	Hello world!
+</h1>
+
+<style global lang='postcss'>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 </style>

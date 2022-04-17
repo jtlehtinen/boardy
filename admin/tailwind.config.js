@@ -1,7 +1,10 @@
+const production = !process.env.ROLLUP_WATCH
+
 module.exports = {
-  content: [],
+  // https://tailwindcss.com/docs/content-configuration
+  content: ['./src/**/*.{js,svelte}'],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};

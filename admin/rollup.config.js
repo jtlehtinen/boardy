@@ -4,6 +4,10 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import sveltePreprocess from 'svelte-preprocess';
+
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -37,12 +41,27 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+		// configuration for rollup-plugin-svelte:
 		svelte({
+			// https://svelte.dev/docs#compile-time-svelte-preprocess
+			preprocess: sveltePreprocess({
+					sourceMap: !production,
+					postcss: {
+						plugins: [
+							autoprefixer(),
+							tailwindcss(),
+						]
+					}
+				}
+			),
+
+			// https://svelte.dev/docs#compile-time-svelte-compile
 			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production
+				dev: !production // Whether to inject extra code for runtime checks and debug info.
 			}
 		}),
+
+
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),

@@ -10,6 +10,7 @@
   import TablesIcon from './../Icons/TablesIcon.svelte';
   import PagesMenu from './PagesMenu.svelte';
   import SidebarLink from './SidebarLink.svelte';
+  import CreateAccountButton from './CreateAccountButton.svelte';
 
   const links = [
     {href: 'forms.html', text: 'Forms', iconComponent: FormIcon},
@@ -20,9 +21,9 @@
     {href: 'tables.html', text: 'Tables', iconComponent: TablesIcon},
   ];
 
-  let isPagesMenuOpen = false;
+  let showPagesMenu = false;
   function togglePagesMenu() {
-    isPagesMenuOpen = !isPagesMenuOpen;
+    showPagesMenu = !showPagesMenu;
   }
 </script>
 
@@ -62,17 +63,12 @@
           <DownArrowIcon/>
         </button>
 
-        {#if isPagesMenuOpen}
+        {#if showPagesMenu}
         <PagesMenu/>
         {/if}
       </li>
     </ul>
 
-    <div class='px-6 my-6'>
-      <button class='flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple'>
-        Create account
-        <span class='ml-2' aria-hidden='true'>+</span>
-      </button>
-    </div>
+    <CreateAccountButton/>
   </div>
 </aside>

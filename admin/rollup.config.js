@@ -40,7 +40,6 @@ export default {
     file: 'public/build/bundle.js'
   },
   plugins: [
-    // configuration for rollup-plugin-svelte:
     svelte({
       // https://svelte.dev/docs#compile-time-svelte-preprocess
       preprocess: sveltePreprocess({
@@ -70,9 +69,9 @@ export default {
 
     !production && serve(), // Call `npm run start` after bundle generated.
     !production && livereload('public'), // Watch 'public' dir and refresh browser on change.
-    production && terser() // Minify
+    production && terser() // Minify.
   ],
   watch: {
-    clearScreen: false // Don't clear the terminal
+    clearScreen: false // Don't clear the terminal.
   }
 };

@@ -5,6 +5,9 @@ module.exports = {
   content: ['./src/**/*.{js,svelte}'],
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+    }
   },
   plugins: [],
 };

@@ -7,5 +7,5 @@
   on:click
   aria-label='Menu'
 >
-  <HamburgerMenuIcon/>
+  <span class='w-6 h-6'><HamburgerMenuIcon/></span>
 </button>

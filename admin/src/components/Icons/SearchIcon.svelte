@@ -1,5 +1,4 @@
 <svg
-  class='w-4 h-4'
   aria-hidden='true'
   fill='currentColor'
   viewBox='0 0 20 20'

@@ -10,7 +10,9 @@
 
 <div class='flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800'>
   <div class='p-3 mr-4 rounded-full {iconClass}'>
-    <svelte:component this={icon}/>
+    <div class='w-5 h-5'>
+      <svelte:component this={icon}/>
+    </div>
   </div>
   <div>
     <p class='mb-2 text-sm font-medium text-gray-600 dark:text-gray-400'>

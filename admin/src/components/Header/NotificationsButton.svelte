@@ -10,6 +10,6 @@
   aria-label='Notifications'
   aria-haspopup='true'
 >
-  <BellIcon/>
+  <div class='w-5 h-5'><BellIcon/></div>
   <NotificationBadge/>
 </button>

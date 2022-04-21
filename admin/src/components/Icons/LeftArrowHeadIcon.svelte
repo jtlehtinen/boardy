@@ -1,6 +1,6 @@
 <svg
   aria-hidden='true'
-  class='w-4 h-4 fill-current'
+  fill='currentColor'
   viewBox='0 0 20 20'
 >
   <path

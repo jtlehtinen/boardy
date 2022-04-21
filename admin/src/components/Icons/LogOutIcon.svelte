@@ -1,5 +1,4 @@
 <svg
-  class='w-4 h-4 mr-3'
   aria-hidden='true'
   fill='none'
   stroke-linecap='round'

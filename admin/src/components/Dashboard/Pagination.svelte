@@ -25,7 +25,7 @@
             class='px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple'
             aria-label='Previous'
           >
-            <LeftArrowHeadIcon/>
+            <div class='w-4 h-4'><LeftArrowHeadIcon/></div>
           </button>
         </li>
 
@@ -42,7 +42,7 @@
             class='px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple'
             aria-label='Next'
           >
-            <RightArrowHeadIcon/>
+            <div class='w-4 h-4'><RightArrowHeadIcon/></div>
           </button>
         </li>
       </ul>

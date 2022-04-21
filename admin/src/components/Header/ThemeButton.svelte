@@ -9,10 +9,12 @@
   class='rounded-md focus:outline-none focus:shadow-outline-purple'
   aria-label='Toggle color mode'>
 
+  <div class='w-5 h-5'>
   {#if darkTheme}
-    <MoonIcon/>
+  <SunIcon/>
   {:else}
-    <SunIcon/>
+  <MoonIcon/>
   {/if}
+  </div>
 
 </button>

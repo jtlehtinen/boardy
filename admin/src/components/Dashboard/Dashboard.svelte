@@ -1,5 +1,5 @@
 <script>
-  import CallToAction from './CallToAction.svelte';
+  import CallToAction from '../Misc/CallToAction.svelte';
   import Cards from './Cards.svelte';
   import Table from './Table.svelte';
   import Pagination from './Pagination.svelte';

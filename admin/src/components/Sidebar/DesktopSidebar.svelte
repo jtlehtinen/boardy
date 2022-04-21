@@ -13,12 +13,12 @@
   import CreateAccountButton from './CreateAccountButton.svelte';
 
   const links = [
-    {href: 'forms.html', text: 'Forms', iconComponent: FormIcon},
-    {href: 'cards.html', text: 'Cards', iconComponent: CardsIcon},
-    {href: 'charts.html', text: 'Charts', iconComponent: ChartsIcon},
+    {href: '/forms', text: 'Forms', iconComponent: FormIcon},
+    {href: '/', text: 'Cards', iconComponent: CardsIcon},
+    {href: '/', text: 'Charts', iconComponent: ChartsIcon},
     {href: '/buttons', text: 'Buttons', iconComponent: ButtonsIcon},
-    {href: 'modals.html', text: 'Modals', iconComponent: ModalsIcon},
-    {href: 'tables.html', text: 'Tables', iconComponent: TablesIcon},
+    {href: '/', text: 'Modals', iconComponent: ModalsIcon},
+    {href: '/', text: 'Tables', iconComponent: TablesIcon},
   ];
 
   let showPagesMenu = false;

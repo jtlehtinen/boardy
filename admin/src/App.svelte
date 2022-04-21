@@ -4,6 +4,7 @@
   import Header from './components/Header/Header.svelte';
   import Dashboard from './components/Dashboard/Dashboard.svelte';
   import Buttons from './components/Buttons/Buttons.svelte';
+  import Forms from './components/Forms/Forms.svelte';
 
   export let url = '';
 </script>
@@ -19,6 +20,10 @@
 
       <Route path='/buttons'>
         <Buttons/>
+      </Route>
+
+      <Route path='/forms'>
+        <Forms/>
       </Route>
     </Router>
   </div>

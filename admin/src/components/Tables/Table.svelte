@@ -1,5 +1,7 @@
 <script>
-  import Status from '../Tables/Status.svelte';
+  import Status from './Status.svelte';
+  import TableHead from './TableHead.svelte';
+  import Pagination from '../Dashboard/Pagination.svelte';
 
   const rows = [
     {
@@ -68,58 +70,59 @@
     },
   ];
 
+  const headings = ['Client', 'Amount', 'Status', 'Date'];
+
 </script>
 
-<div class='w-full overflow-x-auto'>
-  <table class='w-full whitespace-no-wrap'>
-    <thead>
-      <tr class='text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800'>
-        <th class='px-4 py-3'>Client</th>
-        <th class='px-4 py-3'>Amount</th>
-        <th class='px-4 py-3'>Status</th>
-        <th class='px-4 py-3'>Date</th>
-      </tr>
-    </thead>
+<h4 class='mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300'>
+  Table with avatars
+</h4>
 
-    <tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>
+<div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+  <div class='w-full overflow-x-auto'>
+    <table class='w-full whitespace-no-wrap'>
+      <TableHead {headings}/>
+      <tbody class='bg-white divide-y dark:divide-gray-700 dark:bg-gray-800'>
 
-      {#each rows as row}
-      <tr class='text-gray-700 dark:text-gray-400'>
-        <td class='px-4 py-3'>
-          <div class='flex items-center text-sm'>
-            <!-- Avatar with inset shadow -->
-            <div class='relative hidden w-8 h-8 mr-3 rounded-full md:block'>
-              <img
-                class='object-cover w-full h-full rounded-full'
-                src={row.imageUrl}
-                alt=''
-                loading='lazy'
-              />
-              <div
-                class='absolute inset-0 rounded-full shadow-inner'
-                aria-hidden='true'
-              ></div>
+        {#each rows as row}
+        <tr class='text-gray-700 dark:text-gray-400'>
+          <td class='px-4 py-3'>
+            <div class='flex items-center text-sm'>
+              <!-- Avatar with inset shadow -->
+              <div class='relative hidden w-8 h-8 mr-3 rounded-full md:block'>
+                <img
+                  class='object-cover w-full h-full rounded-full'
+                  src={row.imageUrl}
+                  alt=''
+                  loading='lazy'
+                />
+                <div
+                  class='absolute inset-0 rounded-full shadow-inner'
+                  aria-hidden='true'
+                ></div>
+              </div>
+              <div>
+                <p class='font-semibold'>{row.name}</p>
+                <p class='text-xs text-gray-600 dark:text-gray-400'>
+                  {row.profession}
+                </p>
+              </div>
             </div>
-            <div>
-              <p class='font-semibold'>{row.name}</p>
-              <p class='text-xs text-gray-600 dark:text-gray-400'>
-                {row.profession}
-              </p>
-            </div>
-          </div>
-        </td>
+          </td>
 
-        <td class='px-4 py-3 text-sm'>
-          $ {row.amount}
-        </td>
-        <td class='px-4 py-3 text-xs'>
-          <Status status={row.status}/>
-        </td>
-        <td class='px-4 py-3 text-sm'>
-          {row.date}
-        </td>
-      </tr>
-      {/each}
-    </tbody>
-  </table>
+          <td class='px-4 py-3 text-sm'>
+            $ {row.amount}
+          </td>
+          <td class='px-4 py-3 text-xs'>
+            <Status status={row.status}/>
+          </td>
+          <td class='px-4 py-3 text-sm'>
+            {row.date}
+          </td>
+        </tr>
+        {/each}
+      </tbody>
+    </table>
+  </div>
+  <Pagination/>
 </div>

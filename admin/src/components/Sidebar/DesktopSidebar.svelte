@@ -14,17 +14,19 @@
 
   const links = [
     {href: '/forms', text: 'Forms', iconComponent: FormIcon},
-    {href: '/', text: 'Cards', iconComponent: CardsIcon},
-    {href: '/', text: 'Charts', iconComponent: ChartsIcon},
+    {href: '/cards', text: 'Cards', iconComponent: CardsIcon},
+    {href: '/charts', text: 'Charts', iconComponent: ChartsIcon},
     {href: '/buttons', text: 'Buttons', iconComponent: ButtonsIcon},
-    {href: '/', text: 'Modals', iconComponent: ModalsIcon},
-    {href: '/', text: 'Tables', iconComponent: TablesIcon},
+    {href: '/modals', text: 'Modals', iconComponent: ModalsIcon},
+    {href: '/tables', text: 'Tables', iconComponent: TablesIcon},
   ];
 
   let showPagesMenu = false;
   function togglePagesMenu() {
     showPagesMenu = !showPagesMenu;
   }
+
+  const pathname = window.location.pathname;
 </script>
 
 <aside class='z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0'>
@@ -33,8 +35,10 @@
 
     <ul class='mt-6'>
       <li class='relative px-6 py-3'>
+        {#if pathname === '/'}
         <span class='absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg' aria-hidden='true'></span>
-        <a href='/' class='inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100'>
+        {/if}
+        <a href='/' class:text-gray-800={pathname === '/'} class='inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100'>
           <span class='w-5 h-5'><HomeIcon/></span>
           <span class='ml-4'>Dashboard</span>
         </a>
@@ -45,7 +49,10 @@
 
       {#each links as link}
       <li class='relative px-6 py-3'>
-        <SidebarLink href={link.href} text={link.text}>
+        {#if pathname === link.href}
+          <span class='absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg' aria-hidden='true'></span>
+        {/if}
+        <SidebarLink href={link.href} text={link.text} selected={pathname === link.href}>
           <svelte:component this={link.iconComponent} slot='icon'/>
         </SidebarLink>
       </li>

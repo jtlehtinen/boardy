@@ -1,4 +1,5 @@
 // Fetches board game data from Board Game Atlas.
+// See: https://www.boardgameatlas.com/
 package main
 
 import (

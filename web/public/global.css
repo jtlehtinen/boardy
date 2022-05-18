@@ -11,3 +11,11 @@ body {
 	font-family: "Open Sans", sans-serif;
 	font-size: 100%;
 }
+
+.icon {
+	width: 1em;
+	height: 1em;
+	margin-right: 0.4rem;
+	justify-content: center;
+	display: inline-flex;
+}

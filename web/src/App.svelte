@@ -1,6 +1,7 @@
 <script lang='ts'>
   import { Router, Route } from 'svelte-routing';
   import Header from './components/Header.svelte';
+  import Navbar from './components/Navbar.svelte';
   import Footer from './components/Footer.svelte';
   import ListingView from './views/ListingView.svelte';
   import DetailsView from './views/DetailsView.svelte';
@@ -21,6 +22,7 @@
 
 <Header/>
 <Router url={url}>
+  <Navbar/>
   <div class='content'>
     <Route path='/'>
       <ListingView/>

@@ -1,11 +1,17 @@
 <script lang='ts'>
-  import { Router, Route } from 'svelte-routing';
+  import { Router, Route, navigate } from 'svelte-routing';
   import Header from './components/Header.svelte';
   import Navbar from './components/Navbar.svelte';
   import Footer from './components/Footer.svelte';
   import CalendarView from './views/CalendarView.svelte';
   import ListingView from './views/ListingView.svelte';
+  import LoginView from './views/LoginView.svelte';
   import DetailsView from './views/DetailsView.svelte';
+  import { isLoggedIn } from './store';
+
+  if (!$isLoggedIn) {
+    navigate('/login');
+  }
 
   export let url = '';
 
@@ -30,6 +36,9 @@
     </Route>
     <Route path='/calendar'>
       <CalendarView/>
+    </Route>
+    <Route path='/login'>
+      <LoginView/>
     </Route>
     <Route path='/game/:id' let:params>
       <DetailsView id={params.id}/>

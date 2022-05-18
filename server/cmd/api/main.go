@@ -3,16 +3,18 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 )
 
-func index(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("server hello"))
-}
+const version = "0.0.1"
 
 type config struct {
 	port int
+}
+
+type application struct {
 }
 
 func main() {
@@ -20,15 +22,17 @@ func main() {
 	flag.IntVar(&cfg.port, "port", 5001, "server port")
 	flag.Parse()
 
-	router := http.NewServeMux()
-	router.HandleFunc("/", index)
+	app := &application{}
 
-	addr := fmt.Sprintf("localhost:%d", cfg.port)
+	server := &http.Server{
+		Addr:    fmt.Sprintf("localhost:%d", cfg.port),
+		Handler: app.routes(),
+	}
 
-	fmt.Printf("server starting at %s\n", addr)
+	fmt.Fprintf(os.Stdout, "Server starting at %s\n", server.Addr)
 
-	err := http.ListenAndServe(addr, router)
+	err := server.ListenAndServe()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "%s\n", err)
+		log.Fatal(err)
 	}
 }

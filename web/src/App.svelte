@@ -3,6 +3,7 @@
   import Header from './components/Header.svelte';
   import Footer from './components/Footer.svelte';
   import ListingView from './views/ListingView.svelte';
+  import DetailsView from './views/DetailsView.svelte';
 
   export let url = '';
 
@@ -23,6 +24,9 @@
   <div class='content'>
     <Route path='/'>
       <ListingView/>
+    </Route>
+    <Route path='/game/:id' let:params>
+      <DetailsView id={params.id}/>
     </Route>
   </div>
 </Router>

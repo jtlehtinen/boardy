@@ -1,6 +1,7 @@
 <script lang='ts'>
   import { Router, Route } from 'svelte-routing';
   import Header from './components/Header.svelte';
+  import Footer from './components/Footer.svelte';
   import ListingView from './views/ListingView.svelte';
 
   export let url = '';
@@ -25,3 +26,4 @@
     </Route>
   </div>
 </Router>
+<Footer/>

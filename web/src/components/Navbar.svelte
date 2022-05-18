@@ -4,6 +4,7 @@
 
 <nav>
   <Link to='/'>Home</Link>
+  <Link to='/calendar'>Calendar</Link>
 </nav>
 
 <style>

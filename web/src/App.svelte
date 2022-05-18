@@ -1,8 +1,6 @@
+<script>
+  import Header from './components/Header.svelte';
 
-<style>
-  p {
-    color: blue;
-  }
-</style>
+</script>
 
-<p>Boardy Web Client</p>
+<Header/>
